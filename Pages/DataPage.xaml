@@ -1,0 +1,85 @@
+<Page x:Class="KindergartenCRUD.Pages.DataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:conv="clr-namespace:KindergartenCRUD.Converters"
+      Title="Students">
+    <Page.Resources>
+        <conv:RemainingToBrushConverter x:Key="RemainingToBrushConverter"/>
+    </Page.Resources>
+
+    <Grid Margin="14">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <DockPanel Grid.Row="0" Margin="0,0,0,10">
+            <Button x:Name="LangButton" DockPanel.Dock="Right" Content="العربية" Padding="6,2"
+                    Margin="6,0,0,0" Click="LangButton_Click"/>
+            <Button x:Name="LogoutButton" DockPanel.Dock="Right" Content="Logout" Padding="6,2"
+                    Click="LogoutButton_Click"/>
+            <TextBlock x:Name="TitleText" Text="Students" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+        </DockPanel>
+
+        <!-- Search + class filter -->
+        <DockPanel Grid.Row="1" Margin="0,0,0,10">
+            <ComboBox x:Name="ClassFilterBox" DockPanel.Dock="Right" Width="170" Margin="8,0,0,0"
+                      SelectionChanged="ClassFilterBox_SelectionChanged"/>
+            <TextBlock x:Name="SearchLabel" Text="Search:" VerticalAlignment="Center"
+                       Margin="0,0,6,0" DockPanel.Dock="Left"/>
+            <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged"/>
+        </DockPanel>
+
+        <!-- Spreadsheet-like grid: Name, Age, Class, Jan..Dec, Remaining, Notes -->
+        <DataGrid x:Name="StudentsGrid" Grid.Row="2" AutoGenerateColumns="False" IsReadOnly="True"
+                  SelectionMode="Single" SelectionUnit="FullRow" CanUserAddRows="False"
+                  AlternatingRowBackground="#F7F7F7" GridLinesVisibility="All"
+                  CanUserSortColumns="True" HorizontalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="ColName" Header="Name" Binding="{Binding Name}" Width="140"/>
+                <DataGridTextColumn x:Name="ColAge" Header="Age" Binding="{Binding Age}" Width="55"/>
+                <DataGridTextColumn x:Name="ColClass" Header="Class" Binding="{Binding ClassName}" Width="110"/>
+
+                <DataGridTextColumn x:Name="ColJan" Header="Jan" Binding="{Binding Jan, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColFeb" Header="Feb" Binding="{Binding Feb, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColMar" Header="Mar" Binding="{Binding Mar, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColApr" Header="Apr" Binding="{Binding Apr, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColMay" Header="May" Binding="{Binding May, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColJun" Header="Jun" Binding="{Binding Jun, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColJul" Header="Jul" Binding="{Binding Jul, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColAug" Header="Aug" Binding="{Binding Aug, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColSep" Header="Sep" Binding="{Binding Sep, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColOct" Header="Oct" Binding="{Binding Oct, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColNov" Header="Nov" Binding="{Binding Nov, StringFormat=0.00}" Width="55"/>
+                <DataGridTextColumn x:Name="ColDec" Header="Dec" Binding="{Binding Dec, StringFormat=0.00}" Width="55"/>
+
+               
+
+                <DataGridTextColumn x:Name="ColNotes" Header="Notes" Binding="{Binding Notes}" Width="160">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+                            <Setter Property="ToolTip" Value="{Binding Notes}"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Actions -->
+        <UniformGrid Grid.Row="3" Rows="1" Columns="5" Margin="0,10,0,0">
+            <Button x:Name="AddButton" Content="Add New Student" Padding="8" Margin="2" Click="AddButton_Click"/>
+            <Button x:Name="RecordPaymentButton" Content="Record Payment" Padding="8" Margin="2" Click="RecordPaymentButton_Click"/>
+            <Button x:Name="EditButton" Content="Edit" Padding="8" Margin="2" Click="EditButton_Click"/>
+            <Button x:Name="DeleteButton" Content="Delete" Padding="8" Margin="2" Click="DeleteButton_Click"/>
+            <Button x:Name="PrintButton" Content="Print Receipt" Padding="8" Margin="2" Click="PrintButton_Click"/>
+        </UniformGrid>
+
+        <!-- Totals footer -->
+        <TextBlock x:Name="SummaryText" Grid.Row="4" Margin="2,10,0,0" Foreground="#555" FontSize="12"/>
+    </Grid>
+</Page>

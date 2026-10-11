@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <!-- Enables System.Drawing.Printing, used for thermal-receipt printing -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>KindergartenCRUD</RootNamespace>
+    <AssemblyName>KindergartenCRUD</AssemblyName>
+
+    <!-- Embeds the icon into the compiled .exe (taskbar, title bar, File Explorer) -->
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+
+    <!-- Makes "dotnet publish" produce one clean, self-contained KindergartenCRUD.exe -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.*" />
+  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\icon.ico" />
+	</ItemGroup>
+</Project>

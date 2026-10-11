@@ -1,0 +1,45 @@
+<Page x:Class="KindergartenCRUD.Pages.StudentFormPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Student">
+    <Grid Margin="20">
+        <StackPanel MaxWidth="400" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="LangButton" Content="العربية" HorizontalAlignment="Right"
+                    Padding="6,2" Margin="0,0,0,14" Click="LangButton_Click"/>
+
+            <TextBlock x:Name="TitleText" Text="Student" FontSize="20" FontWeight="Bold" Margin="0,0,0,16"/>
+
+            <TextBlock x:Name="NameLabel" Text="Full Name"/>
+            <TextBox x:Name="NameBox" Padding="4" Margin="0,2,0,10"/>
+
+            <TextBlock x:Name="DobLabel" Text="Date of Birth"/>
+            <DatePicker x:Name="DobPicker" Margin="0,2,0,10" SelectedDateChanged="DobPicker_SelectedDateChanged"/>
+
+            <TextBlock x:Name="AgeLabel" Text="Age"/>
+            <TextBox x:Name="AgeBox" Padding="4" Margin="0,2,0,10" IsReadOnly="True" Background="#EEEEEE"/>
+
+            <TextBlock x:Name="ClassLabel" Text="Class"/>
+            <ComboBox x:Name="ClassBox" Margin="0,2,0,10" Padding="4" IsEditable="True">
+                <ComboBoxItem Content="Toddlers"/>
+                <ComboBoxItem Content="Pre-K"/>
+                <ComboBoxItem Content="Kindergarten A"/>
+                <ComboBoxItem Content="Kindergarten B"/>
+            </ComboBox>
+
+            <TextBlock x:Name="FeeLabel" Text="Monthly Fee"/>
+            <TextBox x:Name="FeeBox" Padding="4" Margin="0,2,0,10"/>
+
+            <TextBlock x:Name="NotesLabel" Text="Notes"/>
+            <TextBox x:Name="NotesBox" Padding="4" Margin="0,2,0,16"
+                     AcceptsReturn="True" TextWrapping="Wrap" Height="70"
+                     VerticalScrollBarVisibility="Auto"/>
+
+            <UniformGrid Columns="2" Rows="1">
+                <Button x:Name="SaveButton" Content="Save" Padding="8" Margin="2" Click="SaveButton_Click"/>
+                <Button x:Name="CancelButton" Content="Cancel" Padding="8" Margin="2" Click="CancelButton_Click"/>
+            </UniformGrid>
+
+            <TextBlock x:Name="ErrorText" Foreground="Red" Margin="0,10,0,0" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,12 @@
+<Window x:Class="KindergartenCRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kindergarten Manager" Height="720" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        Icon ="/Assets/icon.ico"
+        FontSize="13">
+    <Grid>
+        <!-- Hosts Login -> Data -> Student form / Record payment pages. -->
+        <Frame x:Name="RootFrame" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
