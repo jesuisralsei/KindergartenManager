@@ -67,13 +67,12 @@ A WPF desktop application for managing kindergarten students, monthly payments, 
 ### 1. Clone the repository | استنساخ المشروع
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/KindergartenCRUD.git
+git clone https://github.com/Jesuisralsei/KindergartenCRUD.git
 cd KindergartenCRUD
 ```
 
-Replace `YOUR-USERNAME` with your GitHub username.
 
-استبدل `YOUR-USERNAME` باسم المستخدم الخاص بك على GitHub.
+
 
 ### 2. Run the application | تشغيل التطبيق
 
@@ -98,8 +97,8 @@ The current version uses a single hardcoded account.
 
 | Field | Value |
 |---|---|
-| Username | `Yasin` |
-| Password | `01001285848` |
+| Username | `Example` |
+| Password | `Example` |
 
 **Security note:** These credentials are hardcoded for the current version. Replace them with a secure authentication system before using the application to manage sensitive real-world records.
 
